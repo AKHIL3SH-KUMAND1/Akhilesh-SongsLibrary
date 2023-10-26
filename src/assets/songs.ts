@@ -1,4 +1,6 @@
-export const songs = [
+
+//Songs main data
+ const songsLibrary = [
   {
     id: '171a95ee-d777-4c3c-b8fa-89ab55ebbd36',
     songName:
@@ -8177,3 +8179,14 @@ export const songs = [
     durationInSeconds: 213,
   },
 ];
+
+
+//If data exists in the local storage fetch it or else set it to main data
+if(window.localStorage.getItem("songs") === null ){
+  window.localStorage.setItem("songs",JSON.stringify(songsLibrary));
+}
+
+
+//exporting the songs data to be used elsewhere
+export const songs = JSON.parse(localStorage.getItem("songs") as string);
+

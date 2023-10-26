@@ -1,5 +1,7 @@
 <p class="display-6 mt-2 mx-2">Add Song</p>
+
 <div class="d-flex flex-column justify-content-center align-items-center m-3" [formGroup]="form" >
+    
     <div class="d-flex justify-content-evenly">
         <mat-form-field class="mx-2" appearance="fill">
             <mat-label>Enter Song Name</mat-label>
@@ -26,8 +28,8 @@
     </div>
 
     <div class="justify-content-evenly">
-        <button class="btn btn-success mx-2" [disabled]="(!form.dirty || !form.invalid)" (click)="add()">Add</button>
-        <button class="btn btn-danger mx-2" (click)="close()">Close</button>
+        <button class="btn btn-success mx-2" [disabled]="form.invalid" (click)="add()">Add</button>
+        <button class="btn btn-danger mx-2" (click)="close()">No Thanks</button>
     </div>
 
 </div>

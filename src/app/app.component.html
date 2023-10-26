@@ -1,176 +1,179 @@
-<header>
+<header class="py-3">
   <div class="d-flex justify-content-center">
-    <p class="display-6 mt-2">Songs Library</p>
+    <p class="display-5 mt-2">Songs Library</p>
   </div>
-  <div class="d-flex justify-content-evenly m-3" [formGroup]="form">
-    <mat-form-field appearance="fill">
+  <div class="d-flex justify-content-center m-3" [formGroup]="form">
+    <mat-form-field appearance="fill" class="mx-5">
       <mat-label>Enter Song Name</mat-label>
       <input formControlName="songName" matInput placeholder="Enter Song Name" />
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="mx-5">
       <mat-label>Enter Artist Name</mat-label>
       <input formControlName="artistName" matInput placeholder="Enter Song Name" />
     </mat-form-field>
   </div>
 </header>
 
-<main>
-  <div class="d-flex flex-column justify-content-center align-items-center mx-5">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th scope="col" class="songName">
-            Song
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button (click)="sortData('songName','desc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </button>
-              <button (click)="sortData('songName','none')" type="button" class="btn px-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-dash-square-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
-                </svg>
-              </button>
+<main class=" py-3">
+  <div class="d-flex flex-column justify-content-center align-items-center mx-2">
+    <div class="d-flex flex-column align-items-center border border-black border-2 shadow">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col" class="songName">
+              Song
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="sortData('songName','desc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+                <button (click)="sortData('songName','none')" type="button" class="btn px-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                  </svg>
+                </button>
 
-              <button (click)="sortData('songName','asc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                  <path
-                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                </svg>
-              </button>
-            </div>
-          </th>
-          <th scope="col">Artist<div class="btn-group" role="group" aria-label="Basic example">
-              <button (click)="sortData('artistName','desc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </button>
-              <button (click)="sortData('artistName','none')" type="button" class="btn px-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-dash-square-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
-                </svg>
-              </button>
+                <button (click)="sortData('songName','asc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th scope="col">Artist<div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="sortData('artistName','desc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+                <button (click)="sortData('artistName','none')" type="button" class="btn px-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                  </svg>
+                </button>
 
-              <button (click)="sortData('artistName','asc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                  <path
-                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                </svg>
-              </button>
-            </div>
-          </th>
-          <th scope="col">No.of Streams<div class="btn-group" role="group" aria-label="Basic example">
-              <button (click)="sortData('numberOfStreams','desc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </button>
-              <button (click)="sortData('numberOfStreams','none')" type="button" class="btn px-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-dash-square-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
-                </svg>
-              </button>
+                <button (click)="sortData('artistName','asc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th scope="col">No.of Streams<div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="sortData('numberOfStreams','desc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+                <button (click)="sortData('numberOfStreams','none')" type="button" class="btn px-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                  </svg>
+                </button>
 
-              <button (click)="sortData('numberOfStreams','asc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                  <path
-                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                </svg>
-              </button>
-            </div>
-          </th>
-          <th scope="col">Release Year<div class="btn-group" role="group" aria-label="Basic example">
-              <button (click)="sortData('releaseYear','desc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </button>
-              <button (click)="sortData('releaseYear','none')" type="button" class="btn px-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-dash-square-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
-                </svg>
-              </button>
+                <button (click)="sortData('numberOfStreams','asc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th scope="col">Release Year<div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="sortData('releaseYear','desc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+                <button (click)="sortData('releaseYear','none')" type="button" class="btn px-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                  </svg>
+                </button>
 
-              <button (click)="sortData('releaseYear','asc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                  <path
-                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                </svg>
-              </button>
-            </div>
-          </th>
-          <th scope="col">Duration<div class="btn-group" role="group" aria-label="Basic example">
-              <button (click)="sortData('durationInSeconds','desc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </button>
-              <button (click)="sortData('durationInSeconds','none')" type="button" class="btn px-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-dash-square-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
-                </svg>
-              </button>
+                <button (click)="sortData('releaseYear','asc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th scope="col">Duration<div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="sortData('durationInSeconds','desc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+                <button (click)="sortData('durationInSeconds','none')" type="button" class="btn px-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                  </svg>
+                </button>
 
-              <button (click)="sortData('durationInSeconds','asc')" type="button" class="btn btn-sm px-1 py-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                  <path
-                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                </svg>
-              </button>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let song of displayedSongs">
-          <td>
-            <input class="form-check-label" type="checkbox" (click)="checkBoxClicked(song)" name="{{ song.songName }}" id="{{ song.id }}" />
-          </td>
-          <td class="songName">{{ song.songName }}</td>
-          <td>{{ song.artistName }}</td>
-          <td>{{ song.numberOfStreams }}</td>
-          <td>{{ song.releaseYear }}</td>
-          <td>{{ calculateDuration(song.durationInSeconds) }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="mx-auto">
-      <mat-paginator (change)="(displayedSongs)" [length]="filteredSongs.length" [pageSize]="10"
-        [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page" [showFirstLastButtons]="true"
-        (page)="onChangePage($event)">
-      </mat-paginator>
+                <button (click)="sortData('durationInSeconds','asc')" type="button" class="btn btn-sm px-1 py-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let song of displayedSongs">
+            <td>
+              <input class="form-check-label" type="checkbox" (click)="checkBoxClicked(song)" name="{{ song.songName }}"
+                id="{{ song.id }}" />
+            </td>
+            <td class="songName">{{ song.songName }}</td>
+            <td>{{ song.artistName }}</td>
+            <td>{{ song.numberOfStreams }}</td>
+            <td>{{ song.releaseYear }}</td>
+            <td>{{ calculateDuration(song.durationInSeconds) }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mx-auto">
+        <mat-paginator (change)="(displayedSongs)" [length]="filteredSongs.length" [pageSize]="10"
+          [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page" [showFirstLastButtons]="true"
+          (page)="onChangePage($event)">
+        </mat-paginator>
+      </div>
     </div>
     <div class="d-flex justify-content-evenly mt-5" style="width: 300px;">
       <button class="btn btn-success" (click)="openAddDialog()">Add Song</button>
-      <button class="btn btn-danger" [disabled]="deleteDisabled" (click)="openDeleteDialog()" >Delete</button>
+      <button class="btn btn-danger" [disabled]="deleteDisabled" (click)="openDeleteDialog()">Delete</button>
     </div>
   </div>
 </main>

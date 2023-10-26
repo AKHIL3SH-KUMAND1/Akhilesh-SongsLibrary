@@ -24,13 +24,12 @@ export class AddSongDialogComponent {
     }
 
 
+  //onclick function to close the dialog as well as send the form data to the dialogref
   add(){
-    if(this.form.dirty || this.form.touched){
-      this.dialogRef.close()
-    }
     this.dialogRef.close(this.form.value)
   }
 
+  //onclick function to close the dialog without sending any data
   close(){
     this.dialogRef.close()
   }

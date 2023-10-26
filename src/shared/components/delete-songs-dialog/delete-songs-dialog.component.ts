@@ -15,10 +15,9 @@ export class DeleteSongsDialogComponent {
   constructor(public dialogRef: MatDialogRef<DeleteSongsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any){
       this.deletedSongs = this.data.deletedSongs
-      console.log(this.deletedSongs)
     }
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close("false");
   }
   deleteSongs(){
     this.dialogRef.close("true");
